@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothy Sign IN</title>
+    <link href="img/pngegg.png" rel="icon"/>
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+        function Login()
+        {
+            x=document.getElementById("Username1").value;
+            y=document.getElementById("Mail1").value;
+            z=localStorage.getItem('Register');
+            v=localStorage.getItem('Register1');
+            x=x.toUpperCase();
+            z=z.toUpperCase();
+            if((x == z) && (y == v))
+            {
+                alert("Correct Credential");
+                window.location.href="Profile.html"
+            }
+            else
+            {
+                alert("Invalid Credential");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="intro2">
+        <img src="img/foodiesfeed.com_can-of-fresh-soda.jpg" alt="pic" width="100%" height="660px">
+        <div class="food2">
+            <h1>Sign In</h1>
+            <div class="un1">
+                <label for="Username">Username </label><br/>
+                <input type="text" id="Username1" placeholder="Enter Username">
+            </div>
+            <div class="Email1">
+                <label for="password">Password </label><br/>
+                <input type="text" id="Mail1" placeholder="Enter Password">
+            </div>
+            <button id="login" onclick="Login()">Login</button>
+        </div>
+       </div>
+</body>
+</html>

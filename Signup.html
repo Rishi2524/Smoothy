@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothy SignUp!</title>
+    <link href="img/pngegg.png" rel="icon"/>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function Getstart()
+        {
+            a=document.getElementById("Username").value;
+            b=document.getElementById("Mail").value;
+            c=document.getElementById("Pwd").value;
+            d=document.getElementById("Mbn").value;
+            e=document.getElementById("Pwd1").value;
+            if((a==""))
+            {
+                alert("Fill the username");
+                document.getElementById("Username").focus();
+                return;
+            }
+            if((b==""))
+            {
+                alert("Fill the mail");
+                document.getElementById("Mail").focus();
+                return;
+            }
+            if((c==""))
+            {
+                alert("Fill the Password");
+                document.getElementById("Pwd").focus();
+                return;
+            }
+            if((d==""))
+            {
+                alert("Fill the Mobienumber");
+                document.getElementById("Mbn").focus();
+                return;
+            }
+            if(c.length<8)
+        {
+            bor=document.getElementById("Pwd");
+            bor.style.border='solid red';
+            alert("Less than 8 characters");
+        }
+        if(c!=e)
+        {
+            bor=document.getElementById("Pwd1");
+            bor.style.border='solid red';
+            alert("Password not matching");
+        }
+        else
+        {
+            localStorage.setItem('Register',a);
+            localStorage.setItem('Register1',c);
+            window.location.href="login.html"
+            alert("Registeration Succcessfull");
+        }
+        }
+        function Auto()
+        {
+           document.getElementById("Pwd").value=generatePass();
+        } 
+        function generatePass()
+        {
+    let pass = '';
+    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+        'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+ 
+    for (let i = 1; i <= 9; i++) {
+        let char = Math.floor(Math.random()
+            * str.length + 1);
+ 
+        pass += str.charAt(char)
+    }
+ 
+    return pass;
+}
+
+        function Next1()
+        {
+            window.location.href="login.html"
+        }
+        function Showpwd()
+        {
+            c=document.getElementById("Pwd");
+            if(c.type=="password")
+            {
+                c.type="text";
+            }
+          else
+            {
+                c.type="password";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+   <div class="intro1">
+    <img src="img/foodiesfeed.com_can-of-fresh-soda.jpg" alt="pic" width="100%" height="660px">
+    <div class="food1">
+        <h1>Sign Up</h1>
+        <div class="un">
+            <label for="Username">Username </label><br/>
+            <input type="text" id="Username" placeholder="Enter Name">
+        </div>
+        <div class="Email">
+            <label for="email">Email </label><br/>
+            <input type="text" id="Mail" placeholder="Enter Email">
+        </div>
+        <div class="Pass">
+            <label for="pass">Password </label><br/>
+            <input type="password" id="Pwd" placeholder="Enter Password">
+            <button id="eye" onclick="Showpwd()"><i class="fa fa-eye" ></i></button>
+        </div>
+        <div class="MN">
+            <label for="mobile">Mobile Number </label><br/>
+            <input type="number" id="Mbn" placeholder="Enter Mobile Number">
+        </div>
+        <button id="getstarted" onclick="Getstart()">Get Started</button>
+        <button id="signin" onclick="Next1()">Sign In</button>
+        <button id="auto" onclick="Auto()">Auto Generate</button>
+        <div class="ConfirmPass">
+            <label for="pass">Confirm Password</label><br/>
+            <input type="password" id="Pwd1" placeholder="Enter Password">
+        </div>
+    </div>
+
+   </div>
+    
+</body>
+</html>
